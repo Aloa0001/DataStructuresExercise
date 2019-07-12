@@ -1,6 +1,8 @@
 package chapter2;
 
-public class MaximumSubseguenceSumProblem {
+public class
+
+MaximumSubseguenceSumProblem {
 
     public static void main(String[] args) {
 
