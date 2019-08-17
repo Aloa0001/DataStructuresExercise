@@ -105,19 +105,45 @@ public class LinkedList<E> {
         currentSize--;
         return current.data;
     }
-/*    public E remove(E obj){
-        if(head == null){
-            return null;
-        }
-        if(head == tail){
-            return removeFirst();
-        }
-        Node<E> current = head, previous = null;
-        if(current == head){
-            return removeFirst();
-        }
-       if (((Comparable<E>)current.data).compareTo(obj )== 0){
 
-       }
-    }*/
+    /**
+     * remove an object from a linked list
+     * @param obj to be removed
+     * @return
+     */
+    public E remove(E obj){
+        Node<E> current = head, previous = null;
+        while(current!=null){
+            if (((Comparable<E>)obj).compareTo(current.data)==0){
+                if(current == head){
+                    return removeFirst();
+                }
+                if(current == tail){
+                    return removeLast();
+                }
+                currentSize -- ;
+                previous.next = current.next;
+                return current.data;
+            }
+            previous = current;
+            current = current.next;
+        }
+        return null;
+    }
+
+    /**
+     * contains an  object into a linked list
+     * @param obj to be compared
+     * @return true if the obj belongs to the the linked list, false if not
+     */
+    public boolean contains(E obj){
+        Node<E> current = head;
+        while (current!= null){
+            if(((Comparable<E>)obj).compareTo(current.data)==0){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
 }
