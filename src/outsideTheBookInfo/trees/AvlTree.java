@@ -1,4 +1,4 @@
-package trees;
+package outsideTheBookInfo.trees;
 
 public class AvlTree<T>{
 
@@ -67,7 +67,8 @@ public class AvlTree<T>{
         }
         checkBalance(node.parent);
     }
-    public  void rebalance(Node<T> node){
+
+    private   void rebalance(Node<T> node){
 
         if(height(node.left) - height(node.right)>1){
 
@@ -89,14 +90,35 @@ public class AvlTree<T>{
     }
 
     /**
+     *
+     * @param
+     * @return returnes the height of the whole tree
+     */
+    public int height(){
+        if(root == null){
+            return 0;
+        }
+        return height(root)-1;
+    }
+
+    /**
      * takes a node from the tree and calculate the height of THE LONGEST PATH (right or left)
      * TO THAT NODE FROM THE LEAFS
      * @param node
-     * @return the height of the subtree from leaves to that node, from 0 to n
+     * @return the height of the subtree
      */
-    public int height(Node<T> node){
-        int height = 0;//TODO
-        return height;
+    private int height(Node<T> node){
+        if(node == null){
+            return 0;
+        }else{
+            int leftHight = height(node.left) + 1;
+            int rightHight = height(node.right) + 1;
+            if(leftHight > rightHight){
+                return leftHight;
+            }else{
+                return  rightHight;
+            }
+        }
     }
 
     public Node<T> leftRotate(Node<T> node){ // for imbalances to the right child, right subtree

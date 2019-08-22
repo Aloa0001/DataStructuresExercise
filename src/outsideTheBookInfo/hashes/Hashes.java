@@ -1,8 +1,5 @@
-package hashes;
+package outsideTheBookInfo.hashes;
 
-import com.sun.net.httpserver.Filter;
-
-import java.util.Collections;
 import java.util.Hashtable;
 
 public class Hashes {

@@ -1,4 +1,4 @@
-package exceptions;
+package outsideTheBookInfo.fundationsOfCSDataStructures.exceptions;
 
 
 public class FileFormatException extends Exception {

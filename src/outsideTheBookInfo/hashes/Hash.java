@@ -1,6 +1,6 @@
-package hashes;
+package outsideTheBookInfo.hashes;
 
-import linkedList.LinkedList;
+import outsideTheBookInfo.linkedList.LinkedList;
 
 import java.util.Iterator;
 import java.util.function.Consumer;

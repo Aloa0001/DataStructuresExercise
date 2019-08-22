@@ -1,4 +1,4 @@
-package trees;
+package outsideTheBookInfo.trees;
 
 public class Heap <E> {
 

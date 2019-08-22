@@ -1,4 +1,4 @@
-package linkedList;
+package outsideTheBookInfo.linkedList;
 
 /**
  * Generic linked list

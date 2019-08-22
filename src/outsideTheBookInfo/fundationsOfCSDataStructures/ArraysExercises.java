@@ -1,6 +1,5 @@
-package fundationsOfCSDataStructures;
+package outsideTheBookInfo.fundationsOfCSDataStructures;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class ArraysExercises {
