@@ -1,4 +1,4 @@
-package linkedList;
+package hashes;
 
 import com.sun.net.httpserver.Filter;
 

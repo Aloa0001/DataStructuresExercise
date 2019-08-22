@@ -1,6 +1,11 @@
-package linkedList;
+package hashes;
 
-public class Hash <K,V> implements HashI<K,V>{
+import linkedList.LinkedList;
+
+import java.util.Iterator;
+import java.util.function.Consumer;
+
+public class Hash <K,V> implements HashI<K,V> {
 
     /**
      * inner class HashElement
@@ -25,10 +30,10 @@ public class Hash <K,V> implements HashI<K,V>{
 
     }
     /**global variables*/
-    LinkedList<HashElement<K,V>> [] hash_array;
+    LinkedList<HashElement<K,V>>[] hash_array;
 
-    int numElement, tableSize;
-    double maxLoadFactor;
+    private int numElements, tableSize;
+    private double maxLoadFactor;
 
     /**
      * Hash constructor
@@ -38,7 +43,7 @@ public class Hash <K,V> implements HashI<K,V>{
         this.tableSize = tableSize;
 
         maxLoadFactor = 0.75;
-        numElement = 0;
+        numElements = 0;
 
         hash_array = (LinkedList<HashElement<K,V>> []) new LinkedList[tableSize];
 
@@ -55,7 +60,7 @@ public class Hash <K,V> implements HashI<K,V>{
         int hashVal = key.hashCode();
         hashVal = hashVal & 0x7FFFFFFF % tableSize;
         hash_array[hashVal].addFirst(he);
-        numElement++;
+        numElements++;
         return true;
     }
 
@@ -66,7 +71,7 @@ public class Hash <K,V> implements HashI<K,V>{
         int hashVal = key.hashCode();
         hashVal = hashVal & 0x7FFFFFFF % tableSize;
         hash_array[hashVal].remove(he);
-        numElement--;
+        numElements--;
         return true;
     }
 
@@ -97,8 +102,53 @@ public class Hash <K,V> implements HashI<K,V>{
     }
 
     public double loadFactor(){
-         return numElement/tableSize;
+         return numElements/tableSize;
     }
 
+    /**
+     * iterator help class
+     * @param <T>
+     */
+    class IteratorHashHelp<T> implements Iterator<T> {
 
+        T[] keys; // an generic empty array of keys
+        int position;
+
+        public IteratorHashHelp(){
+            keys = (T[]) Object[numElements]; // declare the size of the keys array as being
+            // the number of the elements in the hash
+            int p = 0;
+            for (int i = 0 ; i < tableSize; i++){
+                LinkedList<HashElement<K,V>> list = hash_array[i];
+                for(HashElement h: list){
+                    keys[p++] = (T) h.key;
+                }
+                position = 0;
+            }
+        }
+
+        @Override
+        public boolean hasNext() {
+            return position<keys.length;
+        }
+
+        @Override
+        public T next() {
+            if(!hasNext()){
+                return null;
+            }
+            return keys[position++];
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+        @Override
+        public void forEachRemaining(Consumer<? super T> action) {
+
+        }
+
+    }
 }
