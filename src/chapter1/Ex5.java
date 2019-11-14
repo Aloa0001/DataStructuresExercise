@@ -13,7 +13,6 @@ public class Ex5 {
      * @return a powered to b
      */
     private static int exponentialPower(int a, int b){
-
         if( b < 1){
             return 1;
         }else{

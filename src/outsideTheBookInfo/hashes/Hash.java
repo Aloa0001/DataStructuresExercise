@@ -75,7 +75,7 @@ public class Hash <K,V> implements HashI<K,V> {
         return true;
     }
 
-    public V getValue(K key){
+    /*public V getValue(K key){
         int hashVal = key.hashCode() & 0x7FFFFFFF % tableSize;
         for(HashElement<K,V> he : hash_array[hashVal]){// how to replace it with a regular for or while?
             if (((Comparable<K>)key).compareTo(he.key) == 0){
@@ -83,7 +83,7 @@ public class Hash <K,V> implements HashI<K,V> {
             }
         }
         return null;
-    }
+    }*/
 
     public void resize(int newSize){
         LinkedList<HashElement<K,V>> [] newArray = (LinkedList<HashElement<K,V>> [])new LinkedList[newSize];
@@ -91,12 +91,12 @@ public class Hash <K,V> implements HashI<K,V> {
         for(int i = 0 ; i < newSize ; i ++){
             newArray[i] = new LinkedList<HashElement<K,V>>();
         }
-        for(K key : this){
+        /*for(K key : this){
             V value = getValue(key);
             HashElement<K,V> he = new HashElement<K,V>(key, value);
             int hashVal = (key.hashCode() & 0x7FFFFFFF)% newSize;
             newArray[hashVal].addFirst(he);
-        }
+        }*/
         hash_array = newArray;
         tableSize = newSize;
     }
@@ -114,7 +114,7 @@ public class Hash <K,V> implements HashI<K,V> {
         T[] keys; // an generic empty array of keys
         int position;
 
-        public IteratorHashHelp(){
+        /*public IteratorHashHelp(){
             keys = (T[]) Object[numElements]; // declare the size of the keys array as being
             // the number of the elements in the hash
             int p = 0;
@@ -125,7 +125,7 @@ public class Hash <K,V> implements HashI<K,V> {
                 }
                 position = 0;
             }
-        }
+        }*/
 
         @Override
         public boolean hasNext() {
