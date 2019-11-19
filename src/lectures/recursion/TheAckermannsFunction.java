@@ -2,7 +2,7 @@ package lectures.recursion;
 
 public class TheAckermannsFunction {
     public static void main(String[] args) {
-        System.out.println(ackermannsFunction(2,2));
+        System.out.println(ackermannsFunction(2,2qw));
     }
     private static int ackermannsFunction(int x, int y){
         if ( x  == 1 && y >= 1){
