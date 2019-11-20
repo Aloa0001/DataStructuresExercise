@@ -6,44 +6,48 @@ import java.util.Arrays;
 
 public class QueensProblem {
     public static void main(String[] args) {
-        printMapOne(queensProblem(0, new boolean[64]));
+        printMapOne(queensProblem(0,0, new boolean[64]));
         //System.out.println(countQueens(queensProblem(0, new boolean[64])));
     }
 
-    private static boolean[] queensProblem(int indexToStart, boolean[] queens) {
-       // System.out.println(Arrays.toString(queens));
+    private static boolean[] queensProblem(int iteration, int indexToStart, boolean[] queens) {
+       if (iteration > 0){
+           for(int i = 0; i < iteration; i++){
+               queens[i] = true;
+           }
+       }
         queens[indexToStart] = true;
-        int iteration = indexToStart;
         int row = indexToStart / 8;
         int column = indexToStart % 8;
         for (int i = indexToStart; i < queens.length; i++) {
             int newColumn = i % 8;
             int newRow = i / 8;
-            if (newRow == row || newColumn == column || Math.abs(newRow - row) == Math.abs(newColumn - column) ||
-            newColumn == 0) {
+            if (newRow == row || newColumn == column || Math.abs(newRow - row) == Math.abs(newColumn - column) || newColumn == 0) {
                 queens[newRow * 8 + newColumn] = true;
             }
         }
         queens[indexToStart] = false;
-        if (countAvailableQueens(indexToStart + 1, queens) > 0 && indexToStart < queens.length - 8) {
+        if (countAvailableQueens(indexToStart + 1, queens) > 0 && indexToStart < queens.length - 1) {
             do {
                 indexToStart++;
             } while (queens[indexToStart]);
-
-            queensProblem(indexToStart, queens);
+            queensProblem(iteration, indexToStart, queens);
         } else {
             return queens;
         }
-        if (countQueens(queens) > 7) {
+        return queens;
+        /*if (countQueens(queens) > 7) {
             return queens;
         } else {
             boolean[] q = new boolean[queens.length];
             int newStart = iteration +1;
-            for(int i = 0; i < iteration; i++){
+            for(int i = 0; i < iteration-1; i++){
                 q[i] = true;
             }
+            *//*printMapOne(queens);
+            System.out.println();*//*
             return queensProblem(newStart, q);
-        }
+        }*/
     }
 
 
