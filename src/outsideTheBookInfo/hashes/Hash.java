@@ -16,9 +16,7 @@ public class Hash <K,V> implements HashI<K,V> {
 
          K key;
          V value;
-
-
-
+        
          public HashElement(K key,V value){
              this.key = key;
              this.value = value;
@@ -27,7 +25,6 @@ public class Hash <K,V> implements HashI<K,V> {
          public int compareTo(HashElement<K,V> o){
              return ((Comparable<K>)o.key).compareTo(this.key);
          }
-
     }
     /**global variables*/
     LinkedList<HashElement<K,V>>[] hash_array;
@@ -50,8 +47,8 @@ public class Hash <K,V> implements HashI<K,V> {
         for(int i = 0 ; i < tableSize; i++){
             hash_array[i] = new LinkedList<HashElement<K,V>>();
         }
-
     }
+    
     public boolean add(K key, V value){
         if (loadFactor() > maxLoadFactor) {
             resize(tableSize*2);
