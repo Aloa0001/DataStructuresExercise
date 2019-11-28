@@ -4,14 +4,6 @@ import java.util.Hashtable;
 
 public class Hashes {
 
-
-
-
-
-
-
-
-
     public static void main(String[] args) {
         String hash = "Alexander";
         int i = hashXCode(hash);
