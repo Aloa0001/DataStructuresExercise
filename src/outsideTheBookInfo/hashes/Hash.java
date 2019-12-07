@@ -7,6 +7,10 @@ import java.util.function.Consumer;
 
 public class Hash <K,V> implements HashI<K,V> {
 
+    public Hash() {
+
+    }
+
     /**
      * inner class HashElement
      * @param <K>

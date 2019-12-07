@@ -4,19 +4,15 @@ import java.util.Hashtable;
 
 public class Hashes {
 
-
-
-
-
-
-
-
-
     public static void main(String[] args) {
         String hash = "Alexander";
+        String h = "Alexandee";
+
         int i = hashXCode(hash);
         System.out.println(i);
+        System.out.println(hash.charAt(8));
         System.out.println(hash.hashCode());
+        System.out.println(h.hashCode());
 
         Hashtable<Integer, String> table = new Hashtable<>();
         System.out.println(table);
