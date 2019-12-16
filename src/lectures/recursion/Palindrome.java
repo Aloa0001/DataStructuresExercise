@@ -2,7 +2,7 @@ package lectures.recursion;
 
 public class Palindrome {
     public static void main(String[] args) {
-        System.out.println("is "+isPalindrome("fggfg"));
+        System.out.println("is "+isPalindrome("fggfggf"));
     }
     private static boolean isPalindrome(String input){
         if (input.length() < 2){
