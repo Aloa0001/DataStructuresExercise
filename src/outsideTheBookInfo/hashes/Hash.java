@@ -7,6 +7,12 @@ import java.util.function.Consumer;
 
 public class Hash <K,V> implements HashI<K,V> {
 
+    /**global variables*/
+    LinkedList<HashElement<K,V>>[] hash_array;
+
+    private int numElements, tableSize;
+    private double maxLoadFactor;
+
     public Hash() {
 
     }
@@ -33,11 +39,7 @@ public class Hash <K,V> implements HashI<K,V> {
          }
 
     }
-    /**global variables*/
-    LinkedList<HashElement<K,V>>[] hash_array;
 
-    private int numElements, tableSize;
-    private double maxLoadFactor;
 
     /**
      * Hash constructor

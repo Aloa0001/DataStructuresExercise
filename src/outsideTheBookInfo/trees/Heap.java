@@ -26,7 +26,7 @@ public class Heap <E> {
             return;
         }
         int parent = (int) Math.floor((position-1)/2);
-        if(((Comparable<E>)array[position]).compareTo(array[parent])>0){
+        if(((Comparable<E>)array[position]).compareTo(array[parent]) > 0){
             swop(position,parent);
             trickleUp(parent);
         }
