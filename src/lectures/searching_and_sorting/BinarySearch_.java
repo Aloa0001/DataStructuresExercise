@@ -5,7 +5,7 @@ import java.util.Hashtable;
 public class BinarySearch_<E> {
     public static void main(String[] args) {
         Integer[] a = {1, 2, 3, 4, 5, 6, 7};
-        System.out.println(binarySearch(a, 6));
+        System.out.println(binarySearch(a, 9));
         System.out.println(X());
 
     }
@@ -16,10 +16,13 @@ public class BinarySearch_<E> {
         h.put(123,"fdgsdfg");
         h.put(324,"dafsdf");
         h.put(43,"sdafds");
+        h.put(53,"sdafds");
+        h.put(63,"sdafds");
+        h.put(73,"sdafds");
         return h.toString();
     }
 
-    private static <E extends Comparable<? super E>> int binarySearch(E[] a, E x) {
+    private static <E extends Comparable<? super E>> boolean binarySearch(E[] a, E x) {
         int low = 0, high = a.length - 1;
         while (low <= high) {
             int mid = (low + high) / 2;
@@ -28,10 +31,10 @@ public class BinarySearch_<E> {
             } else if (a[mid].compareTo(x) > 0) {
                 high = mid - 1;
             } else {
-                return 1;
+                return true;
             }
         }
-        return -1;
+        return false;
     }
 
     private static int interpolationSearch(int arr[], int n, int i) {
