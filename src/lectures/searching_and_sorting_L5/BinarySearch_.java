@@ -1,4 +1,4 @@
-package lectures.searching_and_sorting;
+package lectures.searching_and_sorting_L5;
 
 import java.util.Hashtable;
 
