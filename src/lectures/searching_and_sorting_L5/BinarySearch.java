@@ -2,7 +2,7 @@ package lectures.searching_and_sorting_L5;
 
 import java.util.Hashtable;
 
-public class BinarySearch_<E> {
+public class BinarySearch<E> {
     public static void main(String[] args) {
         Integer[] a = {1, 2, 3, 4, 5, 6, 7};
         System.out.println(binarySearch(a, 9));
@@ -37,7 +37,7 @@ public class BinarySearch_<E> {
         return false;
     }
 
-    private static int interpolationSearch(int arr[], int n, int i) {
+    private static int interpolationSearch(int[] arr, int n, int i) {
         int x = 0;
         int lo = 0, hi = (n - 1);
         while (lo <= hi && x >= arr[lo] && x <= arr[hi]) {
